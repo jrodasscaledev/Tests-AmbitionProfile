@@ -1,7 +1,6 @@
 import time
 
 import pytest
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from TestData.LoginPageData import LoginPageData
@@ -14,14 +13,13 @@ class TestLogin(BaseClass):
         log = self.getLogger()
         loginpage = LoginPageProcess(self.driver)
         loginpage.getEmail().send_keys(getData["Email"])
-        log.info("Reading Email")
+        # log.info("Reading Email")
+
         loginpage.getPass().send_keys(getData["Pass"])
         log.info("Reading Password")
-        # self.driver.find_element(*LoginPageProcess.getEmail()).send_keys(getData[0])
-        # self.driver.find_element(*LoginPageProcess.getPass()).send_keys(getData[1])
         self.driver.find_element(By.ID, 'loginbutton').click()
         log.info("Submit Login Process")
-        time.sleep(5)
+        # time.sleep(10)
         print(self.driver.current_url)
         self.driver.refresh()
 

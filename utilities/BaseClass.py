@@ -25,7 +25,7 @@ class BaseClass:
         self.driver.find_element(By.CSS_SELECTOR, "input[name=login-email]").send_keys("jrodas@scaledev.gt")
         self.driver.find_element(By.CSS_SELECTOR, "input[name=login-pass]").send_keys("jrodas123*")
         self.driver.find_element(By.ID, 'loginbutton').click()
-        time.sleep(5)
+        time.sleep(8)
 
     # def verifyLinkPresence(self):
         # element = WebDriverWait(self.driver, 10).until(
