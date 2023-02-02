@@ -10,6 +10,7 @@ from utilities.BaseClass import BaseClass
 class TestAddNewSurvey(BaseClass):
     def test_addnewsurvey(self):
         self.LoginProcessMethod()
+        self.driver.implicitly_wait(10)
         # PRINT IN CONSOLE INFO ABOUT THE WEBSITE
         self.driver.find_element(By.ID, 'create_new_survey').click()
         print("TEST CREATION PAGE")
