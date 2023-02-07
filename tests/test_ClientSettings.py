@@ -13,47 +13,77 @@ class TestEditSurvey(BaseClass):
         # COMPANY NAME
         self.driver.find_element(By.CLASS_NAME, 'companyname-stgs').clear()
         self.driver.find_element(By.CLASS_NAME, 'companyname-stgs').send_keys("Test ScaleDev")
-        self.driver.execute_script('arguments[0].click()', self.driver.find_element(By.CLASS_NAME, 'sbmt-cinfo'))
-        time.sleep(8)
-        v_compname = self.driver.find_element(By.CLASS_NAME, 'companyname-stgs').get_attribute('value')
-        assert "" in v_compname
+        self.saveformsubmit()
+        v_compnameant = self.driver.find_element(By.CLASS_NAME, 'companyname-stgs').get_attribute('value')
         self.driver.refresh()
-        print(v_compname)
+        v_compname = self.driver.find_element(By.CLASS_NAME, 'companyname-stgs').get_attribute('value')
+        assert v_compnameant == v_compname
         # INDUSTRY
         self.driver.find_element(By.CLASS_NAME, 'industry-stgs').clear()
         self.driver.find_element(By.CLASS_NAME, 'industry-stgs').send_keys("Marketing Test")
-        v_industry = self.driver.find_element(By.CLASS_NAME, 'industry-stgs').text
-        assert "" in v_industry
+        self.saveformsubmit()
+        v_industryant = self.driver.find_element(By.CLASS_NAME, 'industry-stgs').get_attribute('value')
+        self.driver.refresh()
+        v_industry = self.driver.find_element(By.CLASS_NAME, 'industry-stgs').get_attribute('value')
+        print(v_industryant)
+        assert v_industryant == v_industry
+        # v_industry = self.driver.find_element(By.CLASS_NAME, 'industry-stgs').get_attribute('value')
+        # print(v_industry)
+        # assert "" in v_industry
         # ADDRESS
         self.driver.find_element(By.CLASS_NAME, 'address-stgs').clear()
         self.driver.find_element(By.CLASS_NAME, 'address-stgs').send_keys("Scaledev Guatemala Test")
-        v_address = self.driver.find_element(By.CLASS_NAME, 'address-stgs').text
-        assert "" in v_address
+        self.saveformsubmit()
+        v_addressant = self.driver.find_element(By.CLASS_NAME, 'address-stgs').get_attribute('value')
+        self.driver.refresh()
+        v_address = self.driver.find_element(By.CLASS_NAME, 'address-stgs').get_attribute('value')
+        print(v_addressant)
+        assert v_addressant == v_address
         # POSTAL CODE
         self.driver.find_element(By.CLASS_NAME, 'pc-stgs').clear()
         self.driver.find_element(By.CLASS_NAME, 'pc-stgs').send_keys("01010")
-        v_postalcode = self.driver.find_element(By.CLASS_NAME, 'pc-stgs').text
-        assert "" in v_postalcode
+        self.saveformsubmit()
+        v_postalcodeant = self.driver.find_element(By.CLASS_NAME, 'pc-stgs').get_attribute('value')
+        self.driver.refresh()
+        v_postalcode = self.driver.find_element(By.CLASS_NAME, 'pc-stgs').get_attribute('value')
+        print(v_postalcodeant)
+        assert v_postalcodeant == v_postalcode
         # CITY
         self.driver.find_element(By.CLASS_NAME, 'city-stgs').clear()
         self.driver.find_element(By.CLASS_NAME, 'city-stgs').send_keys("Guatemala test")
-        v_postalcode = self.driver.find_element(By.CLASS_NAME, 'city-stgs').text
-        assert "" in v_postalcode
+        self.saveformsubmit()
+        v_cityant = self.driver.find_element(By.CLASS_NAME, 'city-stgs').get_attribute('value')
+        self.driver.refresh()
+        v_city = self.driver.find_element(By.CLASS_NAME, 'city-stgs').get_attribute('value')
+        print(v_cityant)
+        assert v_cityant == v_city
         # COUNTRY
         self.driver.find_element(By.CLASS_NAME, 'country-stgs').clear()
         self.driver.find_element(By.CLASS_NAME, 'country-stgs').send_keys("Guatemala test")
-        v_country = self.driver.find_element(By.CLASS_NAME, 'country-stgs').text
-        assert "" in v_country
+        self.saveformsubmit()
+        v_countryant = self.driver.find_element(By.CLASS_NAME, 'country-stgs').get_attribute('value')
+        self.driver.refresh()
+        v_country = self.driver.find_element(By.CLASS_NAME, 'country-stgs').get_attribute('value')
+        print(v_countryant)
+        assert v_countryant == v_country
         # VAT NUMBER
         self.driver.find_element(By.CLASS_NAME, 'vatno-stgs').clear()
         self.driver.find_element(By.CLASS_NAME, 'vatno-stgs').send_keys("123456789")
-        v_vatno = self.driver.find_element(By.CLASS_NAME, 'vatno-stgs').text
-        assert "" in v_vatno
+        self.saveformsubmit()
+        v_vatnoant = self.driver.find_element(By.CLASS_NAME, 'vatno-stgs').get_attribute('value')
+        self.driver.refresh()
+        v_vatno = self.driver.find_element(By.CLASS_NAME, 'vatno-stgs').get_attribute('value')
+        print(v_vatnoant)
+        assert v_vatnoant == v_vatno
         # NUMBER OF EMPLOYEES
         self.driver.find_element(By.CLASS_NAME, 'noemp-stgs').clear()
         self.driver.find_element(By.CLASS_NAME, 'noemp-stgs').send_keys("2")
-        v_vatno = self.driver.find_element(By.CLASS_NAME, 'noemp-stgs').text
-        assert "" in v_vatno
+        self.saveformsubmit()
+        v_noempant = self.driver.find_element(By.CLASS_NAME, 'noemp-stgs').get_attribute('value')
+        self.driver.refresh()
+        v_noemp = self.driver.find_element(By.CLASS_NAME, 'noemp-stgs').get_attribute('value')
+        print(v_noempant)
+        assert v_noempant == v_noemp
         # SELECT PREFERRED LANGUAGE
         dropdown = Select(self.driver.find_element(By.CLASS_NAME, 'lang-stgs'))
         ENlang = dropdown.select_by_value("EN")
@@ -65,8 +95,6 @@ class TestEditSurvey(BaseClass):
         dropdown_txt = dropdown.first_selected_option.text
         if dropdown_txt == "":
             raise Exception("Select Language is Empty")
-        # time.sleep(5)
 
-        self.driver.execute_script('arguments[0].click()', self.driver.find_element(By.CLASS_NAME, 'sbmt-cinfo'))
-        time.sleep(10)
+        self.saveformsubmit()
         print("All settings changed")

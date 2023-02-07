@@ -28,6 +28,10 @@ class BaseClass:
         time.sleep(8)
         self.driver.implicitly_wait(10)
 
+    def saveformsubmit(self):
+        self.driver.execute_script('arguments[0].click()', self.driver.find_element(By.CLASS_NAME, 'sbmt-cinfo'))
+        time.sleep(8)
+        self.driver.refresh()
     # def verifyLinkPresence(self):
         # element = WebDriverWait(self.driver, 10).until(
             # EC.presence_of_element_located(By.LINK_TEXT, "India")
