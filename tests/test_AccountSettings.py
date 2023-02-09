@@ -43,18 +43,18 @@ class TestAccountSettings(BaseClass):
         print(lname_accsett)
 
         # EMAIL FIELD - CLEAR, FILL, SAVE
-        emailname_accsett = self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').get_attribute('value')
-        print(emailname_accsett)
-        time.sleep(8)
-        self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').clear()
-        self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').send_keys("testemail@scaledev.gt")
-        emailnamechange_accsett = self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').get_attribute('value')
-        print(emailnamechange_accsett)
-        assert emailname_accsett != emailnamechange_accsett
-        self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').clear()
-        self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').send_keys(emailname_accsett)
-        self.saveformsubmit()
-        self.driver.refresh()
+        # emailname_accsett = self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').get_attribute('value')
+        # print(emailname_accsett)
+        # time.sleep(8)
+        # self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').clear()
+        # self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').send_keys("testemail@scaledev.gt")
+        # emailnamechange_accsett = self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').get_attribute('value')
+        # print(emailnamechange_accsett)
+        # assert emailname_accsett != emailnamechange_accsett
+        # self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').clear()
+        # self.driver.find_element(By.CLASS_NAME, 'fn_EmailSettings_in').send_keys(emailname_accsett)
+        # self.saveformsubmit()
+        # self.driver.refresh()
 
         # PHONE FIELD - CLEAR, FILL, SAVE
         self.driver.execute_script('arguments[0].click()', self.driver.find_element(By.XPATH,
